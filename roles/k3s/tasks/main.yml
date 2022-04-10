@@ -1,0 +1,32 @@
+---
+- name: install server
+  tags: server
+  shell:
+    cmd: curl -sfL https://get.k3s.io | sh -
+    creates: /etc/rancher/k3s/k3s.yaml
+
+- name: get token
+  tags: [ server, worker ]
+  shell:
+    cmd: cat /var/lib/rancher/k3s/server/node-token
+  register: result
+
+- name: set token fact
+  tags: [ server, worker ]
+  set_fact:
+    k3stoken: "{{ result.stdout }}"
+
+- name: debug print the token
+  tags: [ server, worker ]
+  debug:
+    msg: "K3S_TOKEN is {{ k3stoken }}"
+
+- name: install server
+  tags: server
+  shell:
+    cmd: K3S_TOKEN={{k3stoken}} k3s server --cluster-init
+
+- name: create worker
+  tags: worker
+  shell:
+    cmd: curl -sfL https://get.k3s.io | K3S_URL=https://leap:6443 K3S_TOKEN={{ k3stoken }} sh -

@@ -1,0 +1,7 @@
+---
+- hosts: nodes
+  gather_facts: True
+  become: True
+  roles:
+    - role: k3s
+      tags: [ k3s ]
