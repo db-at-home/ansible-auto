@@ -19,6 +19,11 @@ and do more with iTerm and remote sessions following these write ups:
     https://gitlab.com/gnachman/iterm2/-/wikis/TmuxIntegration
     https://gitlab.com/gnachman/iterm2/-/wikis/tmux-Integration-Best-Practices
 
+If you follow steps above you'll have lines like this at the end of your ~/.zshrc file
+
+    export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 ### pyenv for latest python3 and pip3
 
 Monterey doesn't have the latest of either, but don't stomp the system python or pip. Add pyenv
@@ -140,16 +145,17 @@ Example output
     virtualenv   20.16.3
 
 
-### django virtualenv
+## django virtualenv
 
     virtualenv -p 3.10.6 django
     cd django
     source bin/activate
+    pip install django
     (django) ~/git/django > django-admin startproject mysite
     (django) ~/git/django > cd mysite    
     (django) ~/git/django/mysite >  python manage.py runserver
 
-play with the url - ctrl-c when done
+play with the url in browser - ctrl-c in terminal when done - and continue on with tutorials with
 
     (django) ~/git/django/mysite >  python manage.py startapp polls
 
