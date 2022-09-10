@@ -61,7 +61,7 @@ at end of ~/.zshrc:
 
 ## prepend to path in .zprofile
 
-Add these to the .zprofile and source it
+Add these to the ond of your .zprofile and then source it
 
   path=('~/.local/bin' $path)
   export PATH
