@@ -100,8 +100,9 @@ Example output
 
 Add these to the ond of your .zprofile and then source it
 
-    echo 'path=("/Users/$USER/.local/bin" $path)' >> .zprofile
-    echo 'export PATH' >> .zprofile
+    echo 'path=("/Users/$USER/.local/bin" $path)' >> ~/.zprofile
+    echo 'export PATH' >> ~/.zprofile
+    source ~/.zprofile
 
 ### which ansible
 
