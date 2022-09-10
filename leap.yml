@@ -7,17 +7,20 @@
     - role: os_update
       tags: [ update ]
   tasks:
+    - name: set leap hostname
+      tags: hostname
+      hostname:
+        name: leap
+    - name: reread facts
+      tags: hostname
+      setup:
     - name: etc hosts
       tags: hostname
       lineinfile:
         dest: /etc/hosts
         regexp: ".*\t{{ hostvars[item]['ansible_hostname']}}"
-        line: "{{ hostvars[item]['ansible_default_ipv4']['address'] }}\t{{ hostvars[item]['ansible_hostname']}}"
+        line: "{{ hostvars[item]['ansible_default_ipv4']['address'] }}\t{{ hostvars[item]['ansible_hostname']}} {{ hostvars[item]['ansible_hostname']}}.lan"
         state: present
         backup: yes
       with_items:
         - "{{groups['nodes']}}"
-    - name: set leap hostname
-      tags: hostname
-      hostname:
-        name: leap
