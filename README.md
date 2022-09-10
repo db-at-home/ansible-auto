@@ -10,6 +10,8 @@ according to the web page https://brew.sh/
 
 ## tmux for iterm2
 
+Quick side note for iTerm2 users...
+
     brew install tmux
 
 and do more with iTerm and remote sessions following these write ups:
@@ -19,7 +21,7 @@ and do more with iTerm and remote sessions following these write ups:
 
 ## Monterey has python3 and pip3
 
-But it's not the latest pip3 -- don't stomp the system pip. Add pyenv
+But it's not the latest of either -- don't stomp the system pip. Add pyenv
 
     brew install pyenv xz
 
@@ -45,7 +47,7 @@ at end of ~/.zshrc:
 
     eval "$(pyenv init -)"
 
-## insteall python 3.10.3 and pip and make it 'active'
+## install python 3.10.6 and pip and make it 'active'
 
    pyenv install 3.10.6
    pyenv global 3.10.6
