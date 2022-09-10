@@ -21,7 +21,7 @@ and do more with iTerm and remote sessions following these write ups:
 
 ## Monterey has python3 and pip3
 
-But it's not the latest of either -- don't stomp the system pip. Add pyenv
+System doesn't have the latest of either, but don't stomp the system python or pip. Add pyenv
 
     brew install pyenv xz
 
@@ -37,7 +37,8 @@ But it's not the latest of either -- don't stomp the system pip. Add pyenv
 
 Run this command to modify the env
 
-    echo 'eval "$(pyenv init --path)"' >> ~/.zprofile\n\necho 'eval "$(pyenv init -)"' >> ~/.zshrc\n
+    echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
+    echo 'eval "$(pyenv init -)"' >> ~/.zshrc
     
 now check for this at end of ~/.zprofile
 
