@@ -4,7 +4,7 @@ This is just a note on getting Ansible on a MacOS Monterey host quick as possibl
 
 ## Install Homebrew
 
-according to the web page https://brew.sh/
+According to the web page https://brew.sh/
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -29,8 +29,7 @@ System doesn't have the latest of either, but don't stomp the system python or p
 
     > brew list
     ==> Formulae
-    autoconf	ca-certificates	libevent	m4		ncurses		openssl@1.1	
-    pkg-config	pyenv		readline	tmux		utf8proc	xz
+    autoconf	ca-certificates	libevent	m4		ncurses		openssl@1.1	pkg-config	pyenv		readline	tmux		utf8proc	xz
     
     ==> Casks
     rectangle
@@ -50,8 +49,8 @@ at end of ~/.zshrc:
 
 ## install python 3.10.6 and pip and make it 'active'
 
-   pyenv install 3.10.6
-   pyenv global 3.10.6
+    pyenv install 3.10.6
+    pyenv global 3.10.6
 
 ## pyenv results:
 
@@ -63,22 +62,22 @@ at end of ~/.zshrc:
 
 Add these to the ond of your .zprofile and then source it
 
-  path=('~/.local/bin' $path)
-  export PATH
+    path=('~/.local/bin' $path)
+    export PATH
   
 ## install ansible
 
-  pip install --upgrade --user pip
-  pip install --user ansible
+    pip install --upgrade --user pip
+    pip install --user ansible
 
 ## which ansible
 
-  which ansible
-  ansible --version
+    which ansible
+    ansible --version
 
 ## we can manage django and other things in virtualenvs
 
-  pip install --user virtualenv
+    pip install --user virtualenv
 
 ## pip results:
 
@@ -126,6 +125,6 @@ as described in
     https://docs.djangoproject.com/en/4.1/intro/tutorial05/
     https://docs.djangoproject.com/en/4.1/intro/tutorial06/
     https://docs.djangoproject.com/en/4.1/intro/tutorial07/
-...
+    ...
     https://docs.djangoproject.com/en/4.1/intro/reusable-apps/
     https://docs.djangoproject.com/en/4.1/intro/whatsnext/
