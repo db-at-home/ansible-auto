@@ -27,7 +27,10 @@ Monterey doesn't have the latest of either, but don't stomp the system python or
 
 ### brew results:
 
-    > brew list
+    brew list
+
+Example output
+
     ==> Formulae
     autoconf	ca-certificates	libevent	m4		ncurses		openssl@1.1	pkg-config	pyenv		readline	tmux		utf8proc	xz
     
@@ -43,7 +46,7 @@ now check for this at end of ~/.zprofile
 
     eval "$(pyenv init --path)"
 
-at end of ~/.zshrc:
+and at end of ~/.zshrc:
 
     eval "$(pyenv init -)"
     
@@ -66,7 +69,10 @@ Upgrade outdated casks with
 ### Find the latest
 
     pyenv install --list | grep -e '^[ \t]*3.' | grep -v -e rc -e dev | tail -n 1
-      3.10.6
+
+Example output
+
+    3.10.6
 
 ### Install and activate it
 
@@ -75,7 +81,10 @@ Upgrade outdated casks with
 
 ### pyenv results:
 
-    > pyenv versions
+    pyenv versions
+
+Example output
+
       system
     * 3.10.6 (set by /Users/.../.pyenv/version)
   
@@ -83,7 +92,7 @@ Upgrade outdated casks with
 
     pip install --upgrade pip
     
-## Install ansible for the user
+## Install ansible
 
     pip install --user ansible
 
@@ -91,8 +100,8 @@ Upgrade outdated casks with
 
 Add these to the ond of your .zprofile and then source it
 
-    path=("/Users/$USER/.local/bin" $path)
-    export PATH
+    echo 'path=("/Users/$USER/.local/bin" $path)' >> .zprofile
+    echo 'export PATH' >> .zprofile
 
 ### which ansible
 
@@ -105,7 +114,10 @@ Add these to the ond of your .zprofile and then source it
 
 ### pip results:
 
-    > pip list
+    pip list
+
+Example output
+
     Package      Version
     ------------ -------
     ansible      6.3.0
@@ -129,9 +141,9 @@ Add these to the ond of your .zprofile and then source it
 
 ### django virtualenv
 
-    > virtualenv -p 3.10.6 django
-    > cd django
-    > source bin/activate
+    virtualenv -p 3.10.6 django
+    cd django
+    source bin/activate
     (django) ~/git/django > django-admin startproject mysite
     (django) ~/git/django > cd mysite    
     (django) ~/git/django/mysite >  python manage.py runserver
