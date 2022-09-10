@@ -8,7 +8,7 @@ According to the web page https://brew.sh/
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-## tmux for iterm2
+### tmux for iterm2
 
 Quick side note for iTerm2 users...
 
@@ -19,13 +19,13 @@ and do more with iTerm and remote sessions following these write ups:
     https://gitlab.com/gnachman/iterm2/-/wikis/TmuxIntegration
     https://gitlab.com/gnachman/iterm2/-/wikis/tmux-Integration-Best-Practices
 
-## Monterey has python3 and pip3
+### pyenv for latest python3 and pip3
 
-System doesn't have the latest of either, but don't stomp the system python or pip. Add pyenv
+Monterey doesn't have the latest of either, but don't stomp the system python or pip. Add pyenv
 
     brew install pyenv xz
 
-## brew results:
+### brew results:
 
     > brew list
     ==> Formulae
@@ -46,40 +46,64 @@ now check for this at end of ~/.zprofile
 at end of ~/.zshrc:
 
     eval "$(pyenv init -)"
+    
+### brew maintance
 
-## install python 3.10.6 and pip and make it 'active'
+Update all package definitions (formulae) and Homebrew itself
+
+    brew update
+
+List installed packages (kegs) which are outdated with
+
+    brew outdated
+
+Upgrade outdated casks with
+
+    brew upgrade
+
+## Use pyenv to install latest python and pip
+
+### Find the latest
+
+    pyenv install --list | grep -e '^[ \t]*3.' | grep -v -e rc -e dev | tail -n 1
+      3.10.6
+
+### Install and activate it
 
     pyenv install 3.10.6
     pyenv global 3.10.6
 
-## pyenv results:
+### pyenv results:
 
     > pyenv versions
       system
-    * 3.10.6 (set by ~/.pyenv/version)
+    * 3.10.6 (set by /Users/.../.pyenv/version)
+  
+## Use pip to upgrade pip 
 
-## prepend to path in .zprofile
+    pip install --upgrade pip
+    
+## Install ansible for the user
+
+    pip install --user ansible
+
+### prepend to path in .zprofile
 
 Add these to the ond of your .zprofile and then source it
 
-    path=('~/.local/bin' $path)
+    path=("/Users/$USER/.local/bin" $path)
     export PATH
-  
-## install ansible
 
-    pip install --upgrade --user pip
-    pip install --user ansible
-
-## which ansible
+### which ansible
 
     which ansible
     ansible --version
 
-## we can manage django and other things in virtualenvs
+## Use virtualenvs to manage things like django
 
-    pip install --user virtualenv
+    pip install virtualenv
 
-## pip results:
+### pip results:
 
     > pip list
     Package      Version
@@ -103,7 +127,7 @@ Add these to the ond of your .zprofile and then source it
     virtualenv   20.16.3
 
 
-## django virtualenv
+### django virtualenv
 
     > virtualenv -p 3.10.6 django
     > cd django
